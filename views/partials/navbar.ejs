@@ -1,0 +1,38 @@
+ <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold text-red-500">Airbnb</a> 
+                    <!-- for index page -->
+                </div>
+                <div class="flex items-center space-x-4">
+                    
+                    <a href="/home" class="<%= currentPath === '/home' ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-500' %> px-3 py-2 rounded-md font-medium transition">Home</a>
+
+                    <% if(isLoggedIn) { %>
+
+                        <% if(user && user.userType === 'guest') { %>
+
+                    <a href="/favourite" class="<%= currentPath === '/favourite' ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-500' %> px-3 py-2 rounded-md font-medium transition">Favourite</a>
+                    <a href="/booking" class="<%= currentPath === '/booking' ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-500' %> px-3 py-2 rounded-md font-medium transition">Booking</a>
+                            
+                    <% } else if(user && user.userType === 'host') { %>
+                    
+                    <a href="/host/addHome" class="<%= currentPath === '/host/addHome' ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-500' %> px-3 py-2 rounded-md font-medium transition">Add Home</a>
+                    <a href="/host/host-home-list" class="<%= currentPath === '/host/host-home-list' ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-500' %> px-3 py-2 rounded-md font-medium transition">Host Home List</a>
+                    
+                    <% } %>
+
+                    <form action="/logout" method="post">
+                        <button type="submit" class="text-gray-700 hover:text-red-500 px-3 py-2 font-medium transition">Logout</button>
+                    </form>
+
+                    <% } else { %>
+                    <a href="/login" class="<%= currentPath === '/login' ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-500' %> px-3 py-2 rounded-md font-medium transition">Login</a>
+                    <a href="/signup" class="<%= currentPath === '/signup' ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-500' %> px-3 py-2 rounded-md font-medium transition">Signup</a>
+                    <% } %>
+                           
+                </div>
+            </div>
+        </div>
+</nav>
