@@ -1,6 +1,6 @@
 # Airbnb Clone
 
-A fully hand-written, full-stack Airbnb clone built using Node.js, Express, MongoDB, and Tailwind CSS. The platform allows users to browse homes, register as guests or hosts, and manage properties.
+Fully hand-written backend code for an Airbnb clone using Node.js, Express, MongoDB, and Tailwind CSS. The platform allows users to browse homes, register as guests or hosts, and manage properties.
 
 ## 🚀 Features
 
