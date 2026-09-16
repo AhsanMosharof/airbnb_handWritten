@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const session =require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
@@ -17,7 +18,7 @@ const { authRouter } = require("./routes/authRouter.js");
 const { default: mongoose } = require("mongoose");
 const app = express();
 
-const DB_PATH= "mongodb://ahsanhabiblimonahsan179_db_user:BfvnxLzN7onMfoo0@ac-hofzifj-shard-00-00.2yj768z.mongodb.net:27017,ac-hofzifj-shard-00-01.2yj768z.mongodb.net:27017,ac-hofzifj-shard-00-02.2yj768z.mongodb.net:27017/airbnb?ssl=true&replicaSet=atlas-lrmcc4-shard-0&authSource=admin&retryWrites=true&w=majority&appName=airbnb";
+const DB_PATH = process.env.MONGO_URI;
 
 const store= new MongoDBStore({            // create store object according to MongoDBStore class that will store session information in mongodb instead of memory
 
@@ -32,7 +33,7 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 
 app.use(session({
-    secret:"want to control ",
+    secret: process.env.SESSION_SECRET,
      resave:false,
       saveUninitialized:false,
       store:store
